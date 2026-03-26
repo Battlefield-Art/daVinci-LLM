@@ -2,7 +2,9 @@
 
 <div align="center">
 
-**🚀 Datasets, models, and code are coming soon.**
+[![Dataset](https://img.shields.io/badge/🤗_Dataset-davinci--llm--data-yellow)](https://huggingface.co/datasets/SII-GAIR-NLP/davinci-llm-data)
+[![Model](https://img.shields.io/badge/🤗_Model-davinci--llm--model-blue)](https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)
+
 
 </div>
 
@@ -14,7 +16,7 @@ daVinci-LLM is a fully-open pretraining research project by GAIR-NLP that aims t
   <img src="fig/intro_davinci.png" alt="daVinci-LLM overview" width="100%" />
 </div>
 
-## ✨ Paper Highlights (Concise)
+## ✨ Paper Highlights
 
 - **Data Darwinism (L0–L9):** a principled taxonomy for data processing depth, from acquisition and filtering to generative refinement and cognitive completion.  
 - **Two-stage pretraining curriculum (8T tokens):** Stage 1 (6T) builds general foundations; Stage 2 (2T) shifts to reasoning-intensive mixtures with structured QA.  
@@ -26,7 +28,7 @@ daVinci-LLM is a fully-open pretraining research project by GAIR-NLP that aims t
   <img src="fig/data-level.png" alt="Data Darwinism levels" width="90%" />
 </div>
 
-## 📊 Key Results (from the paper)
+## 📊 Key Results
 
 - **Overall average: 51.72** for **daVinci-LLM-3B**, matching **OLMo-3 7B (51.65)** despite less than half the parameters.  
 - **MATH: 62.80** for daVinci-LLM-3B, with strong gains in science reasoning.  
@@ -36,13 +38,6 @@ daVinci-LLM is a fully-open pretraining research project by GAIR-NLP that aims t
   <img src="fig/teaser-1.png" alt="Performance teaser" width="95%" />
 </div>
 
-## 📦 Resources (to be released)
-
-- 📄 Paper: coming soon
-- 🤗 Datasets: coming soon
-- 🤗 Models: coming soon
-- 📊 Benchmarks: coming soon
-- 🧪 Training & evaluation code: coming soon
 
 ## 📚 Citation
 
