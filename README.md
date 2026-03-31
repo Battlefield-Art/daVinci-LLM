@@ -85,46 +85,47 @@ daVinci-LLM uses a **dynamically monitored, adaptively adjusted** two-stage curr
 
 ### 3. 🧪 Scientific Transparency — 200+ Controlled Ablations
 
-Through over **200 controlled experiments**, we systematically investigate four thematic areas:
+We transformed key pretraining decisions into systematically verifiable research questions. Through 200+ controlled experiments, we investigated:
 
 <details>
-<summary><b>📌 Data Processing Depth: From Filtering to Synthesis</b></summary>
+<summary><b>📌 Does deeper data processing actually improve capabilities?</b></summary>
 
-- **L3 model-based filtering** yields notable gains on foundational programming tasks (MBPP **+3.40**) but limited improvements on high-order tasks, suggesting that filtering alone is insufficient to unlock the full potential of code training data
-- **L4 generative refinement** delivers substantial improvements for complex reasoning — MATH **+7.00** vs. only +1.37 on simple word problems, demonstrating the asymmetric value of structural purification for multi-step reasoning
-- **L5 cognitive completion** exhibits strong domain-specific alignment: QA synthesized from code sources enhances programming but does not transfer to science domains, and vice versa — positioning L5 as a high-precision tool for capability steering
-- **Core insight**: For reasoning-intensive tasks, advancing processing depth often outweighs simply expanding data volume
+- L3 filtering: Modest gains on basic tasks (+3.4 on MBPP)
+- L4 refinement: Substantial gains on complex reasoning (+7.0 on MATH)
+- L5 synthesis: Strong domain alignment but limited transfer
+- **Insight**: Processing depth is a complementary dimension to data volume scaling
 
 </details>
 
 <details>
-<summary><b>📌 Training Dynamics: Adaptive Data Strategies</b></summary>
+<summary><b>📌 How should training adapt as capabilities mature differently?</b></summary>
 
-- Different capabilities saturate at dramatically different rates — general knowledge plateaus at ~1T tokens, while code and science reasoning continue growing beyond 4T tokens
-- Domain proportion adjustments encounter fundamental limitations once standard corpus formats collectively approach saturation; at that point, reallocating among these formats no longer suffices
-- The transition to structured QA in Stage 2 substantially outperforms continued domain proportion adjustment (Stage 1-3)
-- **Core insight**: Sustained capability development requires monitoring convergence patterns and adapting both domain proportions *and* data formats across training
-
-</details>
-
-<details>
-<summary><b>📌 Data Mixture Design: Balancing Intensification and Preservation</b></summary>
-
-- Balanced configurations (30/30/30 mixture) outperform extreme specialization; different domains exhibit synergistic effects within moderate ranges but antagonistic effects beyond thresholds
-- Direct high-concentration training triggers capability collapse, whereas first establishing balanced representations and then progressively intensifying achieves aggressive enhancement while preserving general competence
-- Stage 2-1's conservative 30% QA is essential: 70% QA in Stage 2-1 triggers code performance collapse due to insufficient code QA diversity, but 70% QA in Stage 2-2 improves all domains monotonically after a balanced foundation is established
-- **Core insight**: Through strategic mixture design and progressive intensification, it is possible to escape the false dichotomy between generalization and specialization
+- General knowledge plateaus at ~1T tokens; reasoning grows past 4T
+- Domain rebalancing works initially, but hits limits
+- Format shift (introducing QA) unlocks further growth
+- **Insight**: No single mixture suffices—monitor and adapt
 
 </details>
 
 <details>
-<summary><b>📌 Evaluation Validity: PPL-based vs. Generative-based</b></summary>
+<summary><b>📌 Can we intensify reasoning without catastrophic forgetting?</b></summary>
 
-- The choice between PPL-based and generative evaluation is not merely technical — these protocols probe different aspects of model capability, and models with extensive QA pretraining can exhibit **ranking reversals** across them
-- Example: OLMO-2-7B slightly outperforms Qwen-2.5-3B under PPL-based evaluation, but the ranking reverses under generative evaluation — a 3.10% swing that reveals genuine differences in pretraining data composition
-- **Core insight**: Evaluation methodology itself must be questioned and validated. When a metric behaves anomalously, both the model and the evaluation protocol should be scrutinized; reporting both protocols provides a more complete capability profile
+- Extreme specialization triggers collapse
+- Progressive strategy: balanced foundation (equal parts QA/code/science) → targeted intensification (70% QA)
+- **Insight**: Balance first, then intensify
 
 </details>
+
+<details>
+<summary><b>📌 Are our evaluation metrics reliable?</b></summary>
+
+- PPL vs. generative evaluation can produce ranking reversals
+- High-QA models show protocol-specific artifacts
+- **Insight**: Report multiple protocols for complete capability profiles
+
+</details>
+
+> 💡 **Full ablation details, configurations, and negative results**: See [Section 4 of our technical report](https://arxiv.org/abs/2603.27164)
 
 
 ## 📊 Key Results: 3B Matches 7B
