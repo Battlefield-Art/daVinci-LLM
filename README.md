@@ -27,29 +27,17 @@ While open-weight models release only checkpoints, critical pretraining details�
 
 daVinci-LLM is not merely a pretrained model release, but an infrastructure for **Democratizing Pretraining Research**. Our goal is to transform pretraining from "black magic requiring industrial-scale resources" into "**scientific exploration that any team can participate in**".
 
-## 🎁 Open-Source Artifacts
 
-We publicly release the following artifacts to facilitate reproducibility and support the research community:
+## 🎁 What We Release
 
-| Category | Content |
-|----------|---------|
-| 🤗 **Model Weights** | Final model and **ALL** intermediate checkpoints (saved every 5,000 steps) |
-| 📁 **Datasets** | 7.5T+ fully traceable Data Darwinism processed high quality pretrain dataset |
-| 📊 **Data Processing Method** | Complete prompts for generative refinement and cognitive completion; filtering, deduplication, and synthesis code |
-| ✅ **Evaluation Suite** | All 19 benchmark configurations and scoring code |
-| 📄 **Technical Report** | Complete decision-making logic with 200+ ablation results |
-| 🔧 **Pretrain Toolkit** (Comming soon)| A practical toolkit that packages daVinci’s pretraining know-how into reusable components for dataset refinement, recipe tuning, checkpoint reuse, and training health analysis—making pretraining more accessible reproducible, and efficient for researchers.
+| Resource | Description |
+|----------|-------------|
+| [🤖 **Model**](https://huggingface.co/SII-GAIR-NLP/davinci-llm-model) | daVinci-LLM-3B final checkpoint + all intermediate checkpoints |
+| [📊 **Training Data**](https://huggingface.co/datasets/SII-GAIR-NLP/davinci-llm-data) | 7.5T+ tokens of fully traceable, high-quality pretraining corpus |
+| [📄 **Technical Report**](https://arxiv.org/abs/2603.27164) | Complete exploration process: data decisions, training dynamics, systematic ablations, and failed experiments |
+| 🔧 **Pretraining Toolkit** (Coming soon) | Lightweight, integrated toolkit (data processing, evaluation, training utilities, etc.) for new starters to experiment with pretraining |
 
-## 🆚 Differentiation from Existing Work
 
-| Dimension | LLaMA/Qwen | OLMo | daVinci |
-|---|---|---|---|
-| Core Contribution | Model weights | Training framework (OLMo Core) | Scientific methodology + data assets |
-| Degree of Openness | Only model weights are released | Engineering implementation is transparent | Complete decision process + 200+ experiments |
-| Cost of Reuse | Training cannot be reproduced | Requires learning a new framework | Compatible with mainstream tools, with **zero migration cost** |
-| Target Users | Users focused only on inference or fine-tuning | Teams with full training resources | **Resource-constrained teams that still want to conduct pretraining research** |
-
-daVinci provides a **methodology for using any tool well**. Rather than reinventing the wheel, we show the community how to use existing frameworks such as Megatron in a more scientific and effective way. This methodological contribution is more durable than any single training framework: frameworks may become outdated as hardware evolves, but scientific methodology can remain valuable for the next decade.
 
 ## 🏛️ Three Pillars of Full Openness
 
@@ -59,9 +47,6 @@ daVinci-LLM is structured around three pillars, each contributing to transparenc
 
 We adopt the **Data Darwinism framework** to systematically organize data processing from L0 (raw acquisition) to L9 (full synthesis). Our **7.5T+ token** corpus combines publicly available datasets with our own processed and **openly released** data—every source is annotated with its Darwin Level, making processing decisions transparent and enabling researchers to assess quality depth and reuse our data assets.
 
-<div align="center">
-  <img src="fig/data-level.png" alt="Data Darwinism levels" width="90%" />
-</div>
 
 | Level | Operation | What It Does |
 |-------|-----------|--------------|
