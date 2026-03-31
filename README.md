@@ -57,23 +57,24 @@ daVinci-LLM is structured around three pillars, each contributing to transparenc
 
 ### 1. 📊 Data Transparency — The Data Darwinism Framework
 
-We adopt the **Data Darwinism framework**, a principled **L0–L9 taxonomy** that organizes data processing operations from basic acquisition to full synthesis, following a coherent evolutionary logic: from selecting and preserving existing content, progressively toward active rewriting and enrichment, and ultimately reaching the capacity to synthesize entirely new content from scratch.
+We adopt the **Data Darwinism framework** to systematically organize data processing from L0 (raw acquisition) to L9 (full synthesis). Our **7.5T+ token** corpus combines publicly available datasets with our own processed and **openly released** data—every source is annotated with its Darwin Level, making processing decisions transparent and enabling researchers to assess quality depth and reuse our data assets.
 
 <div align="center">
   <img src="fig/data-level.png" alt="Data Darwinism levels" width="90%" />
 </div>
 
-| Level | Name | Description |
-|-------|------|-------------|
-| **L0** | Data Acquisition | Raw data collected from web crawls, code platforms, document repositories |
-| **L1** | Format Normalization | Converting heterogeneous formats (HTML, PDF) into unified text representations |
-| **L2** | Rule-based Filtering | Deterministic rules to remove near-duplicates, malformed text, non-target languages |
-| **L3** | Lightweight Model Filtering | Lightweight classifiers for educational value scoring and domain identification |
-| **L4** | Generative Refinement | LLM-driven content transformation — removing structural noise, repairing fragments, strictly preserving semantics |
-| **L5** | Cognitive Completion | Frontier LLMs make implicit reasoning explicit, expanding compressed logical steps into full derivations |
-| **L6–L9** | Higher-Order Synthesis | Contextual completion, environment synthesis, ecosystem synthesis, world synthesis (theoretical frontier) |
+| Level | Operation | What It Does |
+|-------|-----------|--------------|
+| **L0** | Data Acquisition | Collect raw data from diverse sources |
+| **L1** | Format Normalization | Convert heterogeneous formats into unified text |
+| **L2** | Rule-Based Filtering | Remove duplicates, malformed text, non-target languages |
+| **L3** | Model-Based Filtering | Assess educational value and domain relevance via classifiers |
+| **L4** | Generative Refinement | Remove structural noise and repair content while preserving semantics |
+| **L5** | Cognitive Completion | Make implicit reasoning explicit (e.g., expand compressed logical steps) |
+| **L6–L9** | Higher-Order Synthesis | Contextual/environment/ecosystem synthesis (theoretical frontier) |
 
-Our **7.5T+ token training corpus is fully traceable**: every data source is explicitly annotated with its Darwin Level, making curation decisions systematic and transparent. Researchers can clearly see what processing depth each data type has reached and whether further enhancement is worthwhile.
+> 📖 **For the complete Data Darwinism framework**: See [Data Darwinism](https://arxiv.org/abs/2602.07824)
+
 
 ### 2. 🎓 Training Transparency — Adaptive Two-Stage Curriculum
 
@@ -81,7 +82,11 @@ Our **7.5T+ token training corpus is fully traceable**: every data source is exp
   <img src="fig/train-traj.png" alt="Training & evaluation pipeline" width="95%" />
 </div>
 
-daVinci-LLM uses a **dynamically monitored, adaptively adjusted** two-stage curriculum. **Stage 1 (6T tokens)** evaluates all 19 benchmarks every 5,000 steps, revealing that general knowledge plateaus within 1T tokens while code and science reasoning keep growing past 4T—prompting reallocation of compute toward those domains. **Stage 2 (2T tokens)** introduces large-scale structured QA data: Stage 2-1 (1T) blends QA/code/science at 30% each to build a stable foundation, then Stage 2-2 (1T) raises QA to 70% for targeted reasoning amplification—yielding a **+12.14 overall gain** (39.58 → 51.72) and enabling the 3B model to match 7B-scale OLMo-3.
+daVinci-LLM uses a **dynamically monitored, adaptively adjusted** two-stage curriculum:
+
+- **Stage 1 (6T tokens)**: Builds broad foundations. Continuous evaluation reveals that general knowledge saturates early (~1T tokens) while code and science reasoning sustain growth beyond 4T—prompting progressive reallocation toward reasoning-intensive domains.
+
+- **Stage 2 (2T tokens)**: Introduces structured QA data in a progressive curriculum. Stage 2-1 balances across domains to establish stability; Stage 2-2 intensifies QA concentration for targeted reasoning amplification—yielding a **+12.14 gain**.
 
 ### 3. 🧪 Scientific Transparency — 200+ Controlled Ablations
 
@@ -131,14 +136,15 @@ We transformed key pretraining decisions into systematically verifiable research
 ## 📊 Key Results: 3B Matches 7B
 
 
-Our **daVinci-LLM-3B** (trained from random initialization over 8T tokens) achieves an **overall average of 51.72, matching OLMo-3 7B (51.65)** in comprehensive evaluation despite having less than half the parameters, and significantly outperforming parameter-matched baselines such as LLaMA-3.2-3B, especially in scientific reasoning, demonstrating the effectiveness of Data Darwinism processing in science domains.
+Our **daVinci-LLM-3B** achieves an overall score of **51.72**, matching OLMo-3 7B despite having less than half the parameters. Notably, it substantially outperforms on complex reasoning tasks like **MATH** (62.80 vs. OLMo-3’s 39.60), demonstrating the value of systematic, evidence-based pretraining.
 
 | Capability Dimension | daVinci-3B | OLMo-3 7B | LLaMA-3.2-3B | Qwen-2.5-3B |
 | -------------------- | ---------: | --------: | -----------: | ----------: |
-| Overall Perfomance   |      51.72 |     51.65 |        37.58 |       51.44 |
+| **Overall Perfomance**   |      **51.72** |     **51.65** |        37.58 |       51.44 |
 | General Knowledge    |      52.96 |     55.13 |        51.08 |       55.16 |
 | Code Generation      |      55.99 |     54.42 |        32.40 |       56.13 |
 | Scientific Reasoning |      48.30 |     45.98 |        22.45 |       44.65 |
+| MATH                 |      62.80 |     39.60 |         9.00 |       37.20 |
 
 
 ## 📚 Citation
@@ -154,5 +160,18 @@ If you find this work helpful, please consider citing:
       archivePrefix={arXiv},
       primaryClass={cs.AI},
       url={https://arxiv.org/abs/2603.27164},
+}
+```
+
+If you use the Data Darwinism framework, please also cite:
+```bibtex
+@misc{qin2026datadarwinismiunlocking,
+      title={Data Darwinism Part I: Unlocking the Value of Scientific Data for Pre-training}, 
+      author={Yiwei Qin and Zhen Huang and Tiantian Mi and Weiye Si and Chenyang Zhou and Qipeng Guo and Siyuan Feng and Pengfei Liu},
+      year={2026},
+      eprint={2602.07824},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2602.07824}, 
 }
 ```
