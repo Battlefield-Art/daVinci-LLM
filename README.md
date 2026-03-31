@@ -5,6 +5,7 @@
 [![Paper](https://img.shields.io/badge/📄_Paper-arXiv-red)](https://arxiv.org/abs/2603.27164)
 [![Dataset](https://img.shields.io/badge/🤗_Dataset-davinci--llm--data-yellow)](https://huggingface.co/datasets/SII-GAIR-NLP/davinci-llm-data)
 [![Model](https://img.shields.io/badge/🤗_Model-davinci--llm--model-blue)](https://huggingface.co/SII-GAIR-NLP/davinci-llm-model)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 </div>
 
@@ -15,7 +16,8 @@ $$
 
 ## 🔬 Why This Project Matters
 
-**Open-source ≠ Transparent: We can download model weights, but we cannot see the scientific process that shaped them.**
+> [!IMPORTANT]
+> **Open-source ≠ Transparent.** While we can download weights, the scientific process remains hidden. **daVinci-LLM** fixes this by releasing the full recipe: 200+ ablations, data pipelines, and training logic.
 
 <div align="center">
   <img src="fig/score-daVinci-llm.png" alt="daVinci-LLM overview" width="100%" />
